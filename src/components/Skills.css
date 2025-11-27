@@ -1,0 +1,113 @@
+.skills-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(220, 38, 38, 0.03) 100%);
+    overflow: hidden;
+    padding: 5rem 0;
+}
+
+.skills-marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* Add fade effect on sides */
+.skills-marquee-container::before,
+.skills-marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.skills-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.skills-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.marquee-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+}
+
+.scroll-left {
+    animation: scroll-left 40s linear infinite;
+}
+
+.scroll-right {
+    animation: scroll-right 40s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.skill-tag-glass {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    white-space: nowrap;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag-glass:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
+    transform: scale(1.05);
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-33.33% - 0.75rem));
+        /* Adjust based on duplication factor */
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(calc(-33.33% - 0.75rem));
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-tag-glass {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .marquee-track {
+        gap: 1rem;
+    }
+}

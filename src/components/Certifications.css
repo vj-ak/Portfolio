@@ -1,0 +1,178 @@
+.certifications-section {
+    background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 5rem 0;
+}
+
+.cert-marquee-container {
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+/* Add fade effect on sides */
+.cert-marquee-container::before,
+.cert-marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.cert-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.cert-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.cert-marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: cert-scroll 40s linear infinite;
+}
+
+.cert-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.cert-card-glass {
+    flex: 0 0 320px;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.cert-card-glass:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cert-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.cert-card-glass h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.cert-issuer {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.cert-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+@keyframes cert-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-33.33% - 0.66rem));
+        /* Adjust based on duplication factor */
+    }
+}
+
+.subsection-title {
+    font-size: 2rem;
+    margin: 4rem 0 2rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.awards-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.award-card {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.award-card:hover {
+    transform: translateX(10px);
+    border-left-width: 6px;
+}
+
+.award-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.award-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.award-org {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.award-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.award-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .cert-card-glass {
+        flex: 0 0 280px;
+        padding: 1.5rem;
+    }
+
+    .award-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .award-icon {
+        align-self: center;
+    }
+}
