@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import './Projects.css';
+import { playHoverSound, playClickSound } from '../utils/soundEffects';
 import enterpriseImgLarge from '../assets/projects/enterprise-dashboard-large.webp';
 import enterpriseImgSmall from '../assets/projects/enterprise-dashboard-small.webp';
 import aiWikiImgLarge from '../assets/projects/ai-wiki-large.webp';
@@ -15,14 +16,14 @@ const projectsData = [
     {
         id: 0,
         title: "Personal Portfolio & Blog System",
-        description: "A modern, responsive portfolio website featuring a dynamic blog system, theme switching (light/dark mode), and SEO optimization. Built with React, Vite, and Framer Motion.",
+        description: "A modern, responsive portfolio website featuring a blog system, dark mode theme, and SEO optimization. Built with React, Vite, and Framer Motion.",
         imageLarge: portfolioImg,
         imageSmall: portfolioImg,
         tags: ["React", "Vite", "Framer Motion", "CSS3", "SEO"],
         category: "Frontend",
         type: "Personal",
-        github: "https://github.com/yourusername/portfolio", // Replace with actual link
-        // link: "https://your-portfolio-demo.com" // Removed as user is already here
+        github: "https://github.com/vj-ak/Portfolio.git", // Replace with actual link
+        link: "https://www.vijayakash.com" // Removed as user is already here
     },
     {
         id: 1,
@@ -95,7 +96,12 @@ const Projects = () => {
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                 >
-                    <button className="carousel-btn prev" onClick={prevSlide} aria-label="Previous project">
+                    <button
+                        className="carousel-btn prev"
+                        onClick={() => { prevSlide(); playClickSound(); }}
+                        onMouseEnter={playHoverSound}
+                        aria-label="Previous project"
+                    >
                         <FiChevronLeft />
                     </button>
 
@@ -108,6 +114,7 @@ const Projects = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -50 }}
                                 transition={{ duration: 0.5 }}
+                                onMouseEnter={playHoverSound}
                             >
                                 <div className="project-image">
                                     <div className={`project-badge ${projectsData[currentIndex].type.toLowerCase()}`}>
@@ -129,12 +136,28 @@ const Projects = () => {
                                         <h3>{projectsData[currentIndex].title}</h3>
                                         <div className="project-links">
                                             {projectsData[currentIndex].github && (
-                                                <a href={projectsData[currentIndex].github} target="_blank" rel="noopener noreferrer" className="icon-link" aria-label="GitHub Repo">
+                                                <a
+                                                    href={projectsData[currentIndex].github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="icon-link"
+                                                    aria-label="GitHub Repo"
+                                                    onMouseEnter={playHoverSound}
+                                                    onClick={playClickSound}
+                                                >
                                                     <FiGithub />
                                                 </a>
                                             )}
                                             {projectsData[currentIndex].link && (
-                                                <a href={projectsData[currentIndex].link} target="_blank" rel="noopener noreferrer" className="icon-link" aria-label="Live Demo">
+                                                <a
+                                                    href={projectsData[currentIndex].link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="icon-link"
+                                                    aria-label="Live Demo"
+                                                    onMouseEnter={playHoverSound}
+                                                    onClick={playClickSound}
+                                                >
                                                     <FiExternalLink />
                                                 </a>
                                             )}
@@ -151,7 +174,12 @@ const Projects = () => {
                         </AnimatePresence>
                     </div>
 
-                    <button className="carousel-btn next" onClick={nextSlide} aria-label="Next project">
+                    <button
+                        className="carousel-btn next"
+                        onClick={() => { nextSlide(); playClickSound(); }}
+                        onMouseEnter={playHoverSound}
+                        aria-label="Next project"
+                    >
                         <FiChevronRight />
                     </button>
                 </div>
@@ -161,13 +189,14 @@ const Projects = () => {
                         <button
                             key={index}
                             className={`dot ${index === currentIndex ? 'active' : ''}`}
-                            onClick={() => setCurrentIndex(index)}
+                            onClick={() => { setCurrentIndex(index); playClickSound(); }}
+                            onMouseEnter={playHoverSound}
                             aria-label={`Go to project ${index + 1}`}
                         />
                     ))}
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

@@ -4,6 +4,7 @@ import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
+import { playHoverSound, playClickSound } from '../utils/soundEffects';
 
 const Contact = () => {
     const form = useRef();
@@ -91,9 +92,9 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="social-links">
-                            <a href="https://github.com/vj-ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Github Profile"><FaGithub /></a>
-                            <a href="https://www.linkedin.com/in/vj-ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn Profile"><FaLinkedin /></a>
-                            <a href="https://x.com/x_vj_ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter Profile"><FaXTwitter /></a>
+                            <a href="https://github.com/vj-ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Github Profile" onMouseEnter={playHoverSound} onClick={playClickSound}><FaGithub /></a>
+                            <a href="https://www.linkedin.com/in/vj-ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn Profile" onMouseEnter={playHoverSound} onClick={playClickSound}><FaLinkedin /></a>
+                            <a href="https://x.com/x_vj_ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter Profile" onMouseEnter={playHoverSound} onClick={playClickSound}><FaXTwitter /></a>
                         </div>
                     </motion.div>
                     <motion.form
@@ -152,6 +153,8 @@ const Contact = () => {
                             type="submit"
                             className="btn btn-primary"
                             disabled={isSubmitting}
+                            onMouseEnter={playHoverSound}
+                            onClick={playClickSound}
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>

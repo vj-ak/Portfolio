@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
+import { playHoverSound, playClickSound } from '../utils/soundEffects';
 
 const roles = ["Software Engineer", "Fullstack Developer"];
 
@@ -84,10 +85,10 @@ const Hero = () => {
                         Specializing in .NET, Angular, and Azure.
                     </p>
                     <div className="hero-buttons">
-                        <a href="#projects" className="btn btn-primary">View Work</a>
-                        <a href="/Vijay Akash M - Resume.pdf" download className="btn btn-outline">Download Resume</a>
+                        <a href="#projects" className="btn btn-primary" onMouseEnter={playHoverSound} onClick={playClickSound}>View Work</a>
+                        <a href="/Vijay Akash M - Resume.pdf" download className="btn btn-outline" onMouseEnter={playHoverSound} onClick={playClickSound}>Download Resume</a>
                     </div>
-                </div>
+                </div >
                 <motion.div
                     className="hero-visual"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -96,8 +97,8 @@ const Hero = () => {
                 >
                     <div className="blob"></div>
                 </motion.div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 };
 

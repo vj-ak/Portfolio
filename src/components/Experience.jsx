@@ -6,15 +6,16 @@ const experienceData = [
     {
         id: 1,
         company: 'Publicis Sapient',
-        role: 'Senior Associate Technology L1',
+        role: 'Sr. Associate Technology L1',
         period: 'Dec 2025 - Present',
         location: 'Bangalore, Karnataka',
+        type: 'Full-time',
         description: [
-            'Leading development of enterprise-scale applications using modern cloud-native architectures.',
-            'Architecting and implementing microservices-based solutions with focus on scalability and performance.',
-            'Mentoring junior developers and conducting technical design reviews.',
-            'Collaborating with cross-functional teams to deliver high-quality solutions for global clients.',
-            'Driving best practices in DevOps, CI/CD, and agile methodologies.'
+            'Contributed to the development of enterprise-scale applications using modern cloud-native architectures.',
+            'Implemented microservices-based solutions with a focus on scalability and performance.',
+            'Collaborated with cross-functional teams to deliver high-quality solutions for global clients.',
+            'Participated in technical design reviews and code reviews.',
+            'Applied best practices in DevOps, CI/CD, and agile methodologies.'
         ]
     },
     {
@@ -23,6 +24,7 @@ const experienceData = [
         role: 'Software Engineer',
         period: 'Jan 2024 - Nov 2025',
         location: 'Pune, Maharashtra',
+        type: 'Full-time',
         description: [
             'Developed a custom RBAC system using ASP.NET Core & Entity Framework Core.',
             'Built a real-time Angular admin UI to manage users, roles, and permissions.',
@@ -34,9 +36,10 @@ const experienceData = [
     {
         id: 3,
         company: 'Decos Software Development Pvt. Ltd.',
-        role: 'Associate Software Engineer',
+        role: 'Assoc. Software Engineer',
         period: 'Aug 2022 – Dec 2023',
         location: 'Pune, Maharashtra',
+        type: 'Full-time',
         description: [
             'Built a Generative AI-powered wiki assistant using Azure OpenAI.',
             'Integrated Azure OpenAI with internal systems and custom UIs.',
@@ -48,9 +51,10 @@ const experienceData = [
     {
         id: 4,
         company: 'Ask Technology',
-        role: 'Software Programmer (Intern)',
+        role: 'Software Programmer',
         period: 'May 2022 – Aug 2022',
         location: 'Chennai, Tamil Nadu',
+        type: 'Intern',
         description: [
             'Assisted in backend software development using C# and .NET.',
             'Conducted manual testing of core functionalities.',
@@ -83,9 +87,16 @@ const Experience = () => {
                             transition={{ delay: index * 0.2 }}
                         >
                             <div className="timeline-content glass">
-                                <span className="date">{exp.period}</span>
+                                <div className="timeline-header">
+                                    <span className="date">{exp.period} <span className={`company-status ${exp.period.includes('Present') ? 'active' : ''}`}></span></span>
+                                    <span className={`experience-badge ${exp.type.toLowerCase().replace(' ', '-')} ${exp.period.includes('Present') ? 'active' : ''}`}>
+                                        {exp.type}
+                                    </span>
+                                </div>
                                 <h3>{exp.role}</h3>
-                                <h4>{exp.company}</h4>
+                                <div className="company-wrapper">
+                                    <h4>{exp.company}</h4>
+                                </div>
                                 <p className="location">{exp.location}</p>
                                 <ul className="description-list">
                                     {exp.description.map((item, i) => (

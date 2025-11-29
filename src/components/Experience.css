@@ -57,6 +57,10 @@
     border-radius: 6px;
 }
 
+.timeline-header {
+    margin-bottom: 5px;
+}
+
 .timeline-content h3 {
     color: var(--primary-color);
     margin-bottom: 5px;
@@ -73,7 +77,6 @@
     color: var(--accent-color);
     font-weight: 600;
     display: block;
-    margin-bottom: 5px;
 }
 
 .location {
@@ -92,6 +95,125 @@
     margin-bottom: 5px;
     color: var(--text-secondary);
     font-size: 0.95rem;
+}
+
+/* Company Status Styles */
+.company-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.timeline-content h4 {
+    margin-bottom: 0;
+}
+
+.company-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.company-status.active {
+    background: #22c55e;
+    animation: pulse-green 2s infinite;
+}
+
+.company-status.inactive {
+    background: #ef4444;
+    opacity: 0.8;
+}
+
+/* Experience Badge Styles */
+.experience-badge {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.experience-badge.full-time {
+    background: linear-gradient(135deg, var(--primary-color), #ef4444);
+}
+
+.experience-badge.full-time.active {
+    animation: pulse-primary 2s infinite;
+}
+
+.experience-badge.intern {
+    background: linear-gradient(135deg, var(--secondary-color), #ec4899);
+}
+
+.experience-badge.freelance {
+    background: linear-gradient(135deg, var(--accent-color), #f59e0b);
+}
+
+@keyframes pulse-primary {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
+}
+
+@keyframes pulse-secondary {
+    0% {
+        box-shadow: 0 0 0 0 rgba(219, 39, 119, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(219, 39, 119, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(219, 39, 119, 0);
+    }
+}
+
+@keyframes pulse-accent {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
 }
 
 @media (max-width: 768px) {
@@ -115,5 +237,22 @@
 
     .timeline-item:nth-child(even)::after {
         left: 21px;
+    }
+
+    .experience-badge {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-block;
+        margin-left: 10px;
+        padding: 4px 10px;
+        margin-bottom: 5px;
+    }
+
+    .timeline-header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
     }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Header.css';
+import { playHoverSound, playClickSound } from '../utils/soundEffects';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -15,7 +16,13 @@ const Header = () => {
     }, []);
 
     const toggleMenu = () => {
+        playClickSound();
         setMenuOpen(!menuOpen);
+    };
+
+    const handleNavClick = () => {
+        playClickSound();
+        setMenuOpen(false);
     };
 
     return (
@@ -26,7 +33,7 @@ const Header = () => {
             transition={{ duration: 0.5 }}
         >
             <div className="container header-container">
-                <a href="#top" className="logo gradient-text">Portfolio.</a>
+                <a href="#top" className="logo gradient-text" onMouseEnter={playHoverSound} onClick={playClickSound}>Portfolio.</a>
 
                 <div
                     className="menu-icon"
@@ -35,6 +42,7 @@ const Header = () => {
                     tabIndex="0"
                     aria-label="Toggle navigation menu"
                     onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(); }}
+                    onMouseEnter={playHoverSound}
                 >
                     <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
                     <div className={`bar ${menuOpen ? 'open' : ''}`}></div>
@@ -43,12 +51,12 @@ const Header = () => {
 
                 <nav className={`nav-menu ${menuOpen ? 'active' : ''}`}>
                     <ul className="nav-links">
-                        <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
-                        <li><a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a></li>
-                        <li><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-                        <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-                        <li><a href="/blogs" className="blogs-btn" onClick={() => setMenuOpen(false)}>Blogs</a></li>
-                        <li><a href="/Vijay Akash M - Resume.pdf" download className="resume-btn" onClick={() => setMenuOpen(false)}>Resume</a></li>
+                        <li><a href="#about" onClick={handleNavClick} onMouseEnter={playHoverSound}>About</a></li>
+                        <li><a href="#experience" onClick={handleNavClick} onMouseEnter={playHoverSound}>Experience</a></li>
+                        <li><a href="#projects" onClick={handleNavClick} onMouseEnter={playHoverSound}>Projects</a></li>
+                        <li><a href="#contact" onClick={handleNavClick} onMouseEnter={playHoverSound}>Contact</a></li>
+                        <li><a href="/blogs" className="blogs-btn" onClick={handleNavClick} onMouseEnter={playHoverSound}>Blogs</a></li>
+                        <li><a href="/Vijay Akash M - Resume.pdf" download className="resume-btn" onClick={handleNavClick} onMouseEnter={playHoverSound}>Resume</a></li>
                     </ul>
                 </nav>
             </div>
