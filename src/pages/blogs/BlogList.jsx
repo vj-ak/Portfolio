@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { blogPosts } from './blogData';
@@ -109,7 +109,7 @@ const BlogList = () => {
                         ))
                     ) : (
                         <div className="no-results">
-                            <p>No articles found matching "{searchQuery}"</p>
+                            <p>No articles found matching &quot;{searchQuery}&quot;</p>
                         </div>
                     )}
                 </div>

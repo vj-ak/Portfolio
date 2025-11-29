@@ -36,7 +36,7 @@ const About = () => {
                             <div className="skill-item">Angular</div>
                             <div className="skill-item">Azure | DevOps</div>
                             <div className="skill-item">SQL Server</div>
-                            <div className="skill-item">Gen AI's</div>
+                            <div className="skill-item">Gen AI&apos;s</div>
                             <div className="skill-item">Agile</div>
                         </div>
                     </motion.div>

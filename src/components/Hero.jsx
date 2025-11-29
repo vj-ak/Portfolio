@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
+const roles = ["Software Engineer", "Fullstack Developer"];
+
 const Hero = () => {
     const fullName = "Vijay Akash M";
-    const roles = ["Software Engineer", "Fullstack Developer"];
 
     const [displayedName, setDisplayedName] = useState("");
     const [displayedRole, setDisplayedRole] = useState("");
@@ -21,16 +22,12 @@ const Hero = () => {
             }, 100);
             return () => clearTimeout(timeout);
         } else {
-            setNameComplete(true);
+            setTimeout(() => setNameComplete(true), 0);
         }
     }, [displayedName, fullName]);
 
-    // Rotating role typewriter effect
+    // Pause effect
     useEffect(() => {
-        if (!nameComplete) return;
-
-        const currentRole = roles[roleIndex];
-
         if (isPaused) {
             const pauseTimeout = setTimeout(() => {
                 setIsPaused(false);
@@ -38,6 +35,13 @@ const Hero = () => {
             }, 2000); // Pause for 2 seconds before erasing
             return () => clearTimeout(pauseTimeout);
         }
+    }, [isPaused]);
+
+    // Typing/Deleting effect
+    useEffect(() => {
+        if (!nameComplete || isPaused) return;
+
+        const currentRole = roles[roleIndex];
 
         if (!isDeleting && displayedRole.length < currentRole.length) {
             // Typing
@@ -47,7 +51,7 @@ const Hero = () => {
             return () => clearTimeout(timeout);
         } else if (!isDeleting && displayedRole.length === currentRole.length) {
             // Finished typing, pause before deleting
-            setIsPaused(true);
+            setTimeout(() => setIsPaused(true), 0);
         } else if (isDeleting && displayedRole.length > 0) {
             // Deleting
             const timeout = setTimeout(() => {
@@ -56,16 +60,18 @@ const Hero = () => {
             return () => clearTimeout(timeout);
         } else if (isDeleting && displayedRole.length === 0) {
             // Finished deleting, move to next role
-            setIsDeleting(false);
-            setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+            setTimeout(() => {
+                setIsDeleting(false);
+                setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+            }, 0);
         }
-    }, [displayedRole, nameComplete, roleIndex, isDeleting, isPaused, roles]);
+    }, [displayedRole, nameComplete, roleIndex, isDeleting, isPaused]);
 
     return (
         <section id="top" className="hero">
             <div className="container hero-container">
                 <div className="hero-content fade-in-up">
-                    <h2 className="hero-greeting">Hello, I'm</h2>
+                    <h2 className="hero-greeting">Hello, I&apos;m</h2>
                     <h1 className={`hero-name gradient-text ${!nameComplete ? 'typing' : ''}`}>
                         {displayedName}
                     </h1>

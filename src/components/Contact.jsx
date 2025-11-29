@@ -79,10 +79,10 @@ const Contact = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        <h3>Let's Talk</h3>
+                        <h3>Let&apos;s Talk</h3>
                         <p>
-                            I'm currently open to new opportunities and collaborations.
-                            Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                            I&apos;m currently open to new opportunities and collaborations.
+                            Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
                         </p>
                         <div className="contact-details">
                             <div className="contact-item">
@@ -138,7 +138,7 @@ const Contact = () => {
 
                         {status === 'success' && (
                             <div className="form-message success">
-                                Message sent successfully! I'll get back to you soon.
+                                Message sent successfully! I&apos;ll get back to you soon.
                             </div>
                         )}
 
