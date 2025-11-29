@@ -18,6 +18,14 @@ const BlogList = () => {
         }
     };
 
+    const isNew = (dateString) => {
+        const postDate = new Date(dateString);
+        const now = new Date();
+        const diffTime = Math.abs(now - postDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays <= 3;
+    };
+
     const filteredBlogs = blogPosts.filter(blog =>
         blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         blog.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
@@ -77,7 +85,10 @@ const BlogList = () => {
                             >
                                 <div className="blog-content">
                                     <div className="blog-meta">
-                                        <span className="blog-date">{blog.date}</span>
+                                        <span className="blog-date">
+                                            {blog.date}
+                                            {isNew(blog.date) && <span className="new-badge">New</span>}
+                                        </span>
                                     </div>
                                     <h3 className="blog-title">{blog.title}</h3>
                                     <p className="blog-excerpt">{blog.excerpt}</p>
@@ -87,7 +98,7 @@ const BlogList = () => {
                                         ))}
                                     </div>
                                     <Link
-                                        to={`/blogs/${blog.id}`}
+                                        to={`/blogs/${blog.slug}`}
                                         state={{ from: location }}
                                         className="read-more"
                                     >

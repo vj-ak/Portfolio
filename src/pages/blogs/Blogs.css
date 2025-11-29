@@ -434,3 +434,94 @@
         border: none;
     }
 }
+
+/* New Badge Styles */
+.new-badge {
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
+}
+
+/* Code Editor Styles */
+.code-editor {
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 2rem 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.editor-header {
+    background: #2d2d2d;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.editor-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.editor-dot.red {
+    background: #ff5f56;
+}
+
+.editor-dot.yellow {
+    background: #ffbd2e;
+}
+
+.editor-dot.green {
+    background: #27c93f;
+}
+
+.file-name {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    margin-left: 1rem;
+    font-family: monospace;
+}
+
+.editor-content {
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.editor-content pre {
+    margin: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.editor-content code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #d4d4d4;
+    line-height: 1.6;
+}

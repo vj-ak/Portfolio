@@ -6,14 +6,14 @@ import { blogPosts } from './blogData';
 import './Blogs.css';
 
 const BlogPost = () => {
-    const { id } = useParams();
+    const { slug } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
-    const post = blogPosts.find(p => p.id === parseInt(id));
+    const post = blogPosts.find(p => p.slug === slug);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [id]);
+    }, [slug]);
 
     const handleBack = (e) => {
         e.preventDefault();

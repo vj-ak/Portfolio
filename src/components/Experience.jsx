@@ -7,7 +7,7 @@ const experienceData = [
         id: 1,
         company: 'Publicis Sapient',
         role: 'Senior Associate Technology L1',
-        period: 'Nov 2025 - Present',
+        period: 'Dec 2025 - Present',
         location: 'Bangalore, Karnataka',
         description: [
             'Leading development of enterprise-scale applications using modern cloud-native architectures.',

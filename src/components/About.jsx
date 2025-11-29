@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './About.css';
+import profileImage from '../assets/profile.jpg';
 
 const About = () => {
     return (
-        <section id="about" className="section about-section">
-            <div className="container" style={{ padding: '1rem 0 5rem 0' }}>
+        <section id="about" className="section about-section no-pad-desktop">
+            <div className="container">
                 <motion.h2
-                    className="section-title gradient-text"
+                    className="section-title gradient-text" style={{ marginBottom: '0' }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -46,6 +47,10 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                     >
+                        <div className="profile-image-container">
+                            <img src={profileImage} alt="Vijay Akash M" className="profile-image" />
+                        </div>
+
                         <div className="code-display">
                             <div className="code-header">
                                 <span className="code-dot"></span>
