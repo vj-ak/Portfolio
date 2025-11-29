@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
@@ -91,8 +91,9 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="social-links">
+                            <a href="https://github.com/vj-ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Github Profile"><FaGithub /></a>
                             <a href="https://www.linkedin.com/in/vj-ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn Profile"><FaLinkedin /></a>
-                            <a href="https://x.com/VJAK248?t=FIG3xFjXRgjVja0CK2qyAg&s=09" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter Profile"><FaXTwitter /></a>
+                            <a href="https://x.com/x_vj_ak" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter Profile"><FaXTwitter /></a>
                         </div>
                     </motion.div>
                     <motion.form
