@@ -111,6 +111,64 @@
     }
 }
 
+/* Tech Button Styles */
+.tech-button {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    padding: 1.5rem 3rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tech-button:hover {
+    background: rgba(127, 29, 29, 0.2);
+    box-shadow: 0 0 30px rgba(127, 29, 29, 0.3);
+}
+
+.tech-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: #fff;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.tech-border {
+    position: absolute;
+    background: #7f1d1d;
+    /* Darker Red */
+    box-shadow: 0 0 10px #7f1d1d;
+}
+
+.tech-border.top {
+    top: 0;
+    left: 0;
+    height: 2px;
+}
+
+.tech-border.right {
+    top: 0;
+    right: 0;
+    width: 2px;
+}
+
+.tech-border.bottom {
+    bottom: 0;
+    right: 0;
+    height: 2px;
+}
+
+.tech-border.left {
+    bottom: 0;
+    left: 0;
+    width: 2px;
+}
+
 @media (max-width: 768px) {
     .loading-content {
         padding: 1.5rem;
@@ -129,5 +187,13 @@
 
     .progress-text {
         font-size: 0.9rem;
+    }
+
+    .tech-button {
+        padding: 1rem 2rem;
+    }
+
+    .tech-text {
+        font-size: 1.2rem;
     }
 }
