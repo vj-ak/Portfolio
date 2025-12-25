@@ -175,6 +175,10 @@
         text-align: center;
     }
 
+    .hero-visual {
+        display: none;
+    }
+
     .hero-name {
         font-size: 3rem;
         margin-bottom: 0.5rem;

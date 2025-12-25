@@ -10,7 +10,7 @@ import aiWikiImgSmall from '../assets/projects/ai-wiki-small.webp';
 import devopsImgLarge from '../assets/projects/devops-insights-large.webp';
 import devopsImgSmall from '../assets/projects/devops-insights-small.webp';
 
-import portfolioImg from '../assets/projects/portfolio-project.png';
+import portfolioImg from '../assets/projects/portfolio-project.webp';
 
 const projectsData = [
     {

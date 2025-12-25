@@ -1,0 +1,15 @@
+{
+    "id": 3,
+    "slug": "orchestrating-intelligence",
+    "title": "Orchestrating Intelligence: The New Senior Engineer",
+    "excerpt": "The definition of 'Senior Engineer' just changed. Move from optimizing typing speed to optimizing orchestration and governing agents.",
+    "date": "Dec 23, 2025",
+    "isoDate": "2025-12-23T10:00:00.000Z",
+    "tags": [
+        "Agentic AI",
+        "Software Engineering",
+        "Future of Work"
+    ],
+    "image": "/assets/blog/orchestrating-intelligence.webp",
+    "content": "<p class=\"blog-intro\">Stop optimizing your typing speed. Start optimizing your orchestration. The definition of “Senior Engineer” just changed.</p>\n\n<p>In 2024, we optimized for velocity — how fast could we ship?<br/>In 2026, we optimize for reliability — how well can we govern an agent?</p>\n\n<p>Here’s the uncomfortable truth: Studies show devs using AI for complex tasks can be <span class=\"blog-highlight\">~19% slower</span>. Why? Because we’re stuck reviewing “almost right” code.</p>\n\n<p>The bottleneck isn’t syntax anymore. It’s decision-making.</p>\n\n<h3>The Shift to Agentic Workflows</h3>\n<p>The highest-paid engineers I know aren’t writing the cleanest loops. They’re building agentic workflows.</p>\n\n<p>Using tools like MCP and LangGraph, they turn LLMs into:</p>\n<ul>\n    <li>Traceable systems</li>\n    <li>Deterministic pipelines</li>\n    <li>Reliable production workflows</li>\n</ul>\n\n<p>You’re not just a coder now. You’re an <span class=\"blog-highlight\">architect of probability</span>. From writing code → to orchestrating intelligence.</p>\n\n<blockquote>\"Those who learn to govern agents will lead the next decade of software. The rest will keep reviewing diffs of 'almost right'.\"</blockquote>\n\n<p><strong>Question:</strong> Are you spending more time coding — or reviewing AI output — this week?</p>"
+}

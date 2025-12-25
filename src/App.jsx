@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-route
 import Header from './components/Header';
 import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
+import SEO from './components/SEO';
+import SnowfallManager from './components/SnowfallManager';
 import { playStartupSound, initAudio, getAudioContext, playPageTransitionSound } from './utils/soundEffects';
 
 const BlogList = lazy(() => import('./pages/blogs/BlogList'));
@@ -57,11 +59,18 @@ function App() {
       {isInitialLoad && <LoadingSpinner onComplete={() => setIsInitialLoad(false)} />}
       <SoundWrapper>
         <div className="app">
+          <SnowfallManager />
           <Suspense fallback={null}>
             <Routes>
-              <Route path="/" element={<Navigate to="/portfolio" replace />} />
-              <Route path="/portfolio" element={
+              {/* Main Portfolio Route (Root) */}
+              <Route path="/" element={
                 <div key={isInitialLoad ? 'loading' : 'loaded'}>
+                  <SEO
+                    title="Vijay Akash M | Full Stack Developer"
+                    description="Portfolio of Vijay Akash M, a Full Stack Developer specializing in .NET, React, Angular, and Azure. Explore my projects, skills, and professional experience."
+                    url="/"
+                    image="https://vijayakash.com/og-image.png"
+                  />
                   <Header />
                   <Hero />
                   <About />
@@ -71,8 +80,20 @@ function App() {
                   <Contact />
                 </div>
               } />
+
+              <Route path="/portfolio" element={<Navigate to="/" replace />} />
+
               <Route path="/blogs" element={<Blogs />}>
-                <Route index element={<BlogList />} />
+                <Route index element={
+                  <>
+                    <SEO
+                      title="Blogs | Vijay Akash M"
+                      description="Read technical articles and insights from Vijay Akash M."
+                      url="/blogs"
+                    />
+                    <BlogList />
+                  </>
+                } />
                 <Route path=":slug" element={<BlogPost />} />
               </Route>
             </Routes>
